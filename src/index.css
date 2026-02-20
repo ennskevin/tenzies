@@ -3,7 +3,7 @@
 }
 
 :root {
-  --primary-button-color: black;
+  --primary-button-color: rgb(34, 0, 101);
   --secondary-button-color: black;
   --primary-background-color: rgb(26, 0, 93);
   --secondary-background-color: black;
@@ -74,7 +74,7 @@ main {
 
 .dice {
   display: grid;
-  grid-template: repeat(2, 1fr) / repeat(5, 1fr);
+  grid-template: auto auto / repeat(5, 1fr);
   gap: 20px;
   padding: 1.2rem;
 }
@@ -82,7 +82,10 @@ main {
 .die {
   aspect-ratio: 1 / 1;
   font-size: 1.5rem;
-  min-width: 3rem;
+  font-weight: bold;
+  font-family: system-ui, sans-serif;
+
+  width: 3rem;
 
   display: flex;
   justify-content: center;
@@ -91,9 +94,50 @@ main {
   background-color: white;
 
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
 
   cursor: pointer;
+  transition: 
+    transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.1s ease,
+    color 0.25s ease;
 }
 
+.die:hover {
+  transform: scale(1.05)
+}
+
+.die.held {
+  background-color: rgb(255, 47, 255);
+  color: white;
+  box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.15);
+
+
+  align-self: center;
+  justify-self: center;
+
+  transform: scale(0.9);
+}
+
+.roll-button {
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  white-space: nowrap;
+  width: auto;
+  height: 60px;
+  padding: 10px 30px;
+
+  margin-top: 10px;
+
+  background-color: var(--primary-button-color);
+  color: white;
+
+  font-family: system-ui, sans-serif;
+  font-size: 1.4rem;
+  font-variant-caps: small-caps;
+
+  cursor: pointer;
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
+}
